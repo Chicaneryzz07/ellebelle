@@ -14,6 +14,114 @@
       --shadow: rgba(44, 26, 14, 0.3);
     }
 
+    /* ── ENVELOPE OVERLAY ── */
+.envelope-overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, #2c1a0e, #0d0603);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* wrapper */
+.envelope-wrapper {
+  text-align: center;
+}
+
+/* envelope */
+.envelope {
+  width: min(90vw, 350px);
+  height: 220px;
+  background: var(--parchment);
+  position: relative;
+  border-radius: 6px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+  overflow: hidden;
+}
+
+/* flap */
+.envelope-flap {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--parchment-dark);
+  clip-path: polygon(0 0, 100% 0, 50% 60%);
+  transform-origin: top;
+  transition: transform 0.8s ease;
+  z-index: 3;
+}
+
+/* open state */
+.envelope.open .envelope-flap {
+  transform: rotateX(180deg);
+}
+
+/* letter */
+.letter {
+  position: absolute;
+  inset: 0;
+  background: var(--cream);
+  padding: 1.5rem;
+  transform: translateY(100%);
+  transition: transform 0.8s ease;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.envelope.open .letter {
+  transform: translateY(0);
+}
+
+.letter h2 {
+  font-family: 'Playfair Display', serif;
+  color: var(--burgundy);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.letter p {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--ink-light);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* buttons */
+#openLetter,
+#closeLetter {
+  margin-top: 1.5rem;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  background: var(--burgundy);
+  color: var(--gold-light);
+  cursor: pointer;
+  border-radius: 4px;
+  font-family: 'IM Fell English', serif;
+  transition: 0.3s;
+}
+
+#openLetter:hover,
+#closeLetter:hover {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+/* responsive */
+@media (max-width: 600px) {
+  .letter h2 {
+    font-size: 1.2rem;
+  }
+  .letter p {
+    font-size: 0.9rem;
+  }
+}
+
+/* end envelope */
     * {
       margin: 0;
       padding: 0;

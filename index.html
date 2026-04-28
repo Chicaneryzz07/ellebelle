@@ -22,6 +22,35 @@
   <!-- Particles -->
   <div id="particles"></div>
 
+  <!-- ── ENVELOPE OVERLAY ── -->
+  <div id="envelopeOverlay" class="envelope-overlay">
+
+    <div class="envelope-wrapper">
+
+      <!-- Envelope -->
+      <div class="envelope" id="envelope">
+
+        <div class="envelope-flap"></div>
+
+        <div class="letter">
+          <h2>Happy Birthday Ellebelle</h2>
+          <p>
+            Another chapter begins today,<br>
+            more radiant than the last.<br>
+            May this year fill every page<br>
+            with magic only you can bring.
+          </p>
+
+          <button id="closeLetter">Close ✧</button>
+        </div>
+
+      </div>
+
+      <button id="openLetter">Open Letter</button>
+
+    </div>
+  </div>
+
   <!-- Music Button -->
   <button id="musicBtn" title="Toggle ambient music" aria-label="Toggle music">♪</button>
 
@@ -331,6 +360,19 @@
   </audio>
 
   <script>
+    // ── ENVELOPE INTERACTION ──
+    const envelope = document.getElementById('envelope');
+    const openBtn = document.getElementById('openLetter');
+    const closeBtn = document.getElementById('closeLetter');
+    const overlay = document.getElementById('envelopeOverlay');
+
+    openBtn.addEventListener('click', () => {
+      envelope.classList.add('open');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      overlay.style.display = 'none';
+    });
     // ── DUST PARTICLES ──
     (function () {
       const container = document.getElementById('particles');
