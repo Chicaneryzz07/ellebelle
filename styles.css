@@ -14,6 +14,63 @@
       --shadow: rgba(44, 26, 14, 0.3);
     }
 
+    .memory-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: sepia(20%) contrast(1.05);
+}
+/* end meory photo */
+
+/* phone number section */
+/* ── INVITE SECTION ── */
+#invite {
+  background: linear-gradient(180deg, #f0ddb8 0%, #e8d5a3 100%);
+  text-align: center;
+}
+
+.invite-content {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem 2rem 5rem;
+}
+
+.invite-text {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  color: var(--burgundy);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.invite-contact {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  color: var(--ink-light);
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.invite-btn {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  background: var(--burgundy);
+  color: var(--gold-light);
+  text-decoration: none;
+  border-radius: 4px;
+  font-family: 'IM Fell English', serif;
+  letter-spacing: 0.2rem;
+  transition: 0.3s;
+}
+
+.invite-btn:hover {
+  background: var(--gold);
+  color: var(--ink);
+  transform: translateY(-2px);
+}
+
+
     /* ── ENVELOPE OVERLAY ── */
 .envelope-overlay {
   position: fixed;
