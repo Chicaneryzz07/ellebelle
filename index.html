@@ -245,6 +245,17 @@
         </div>
         <p class="memory-caption">Your thought lingers in every corner of my world 🐈</p>
       </div>
+      <div class="memory-card">
+        <div class="memory-tape"></div>
+
+        <div class="memory-photo-placeholder">
+          <img src="img5.jpg" alt="Memory" class="memory-photo">
+        </div>
+
+        <p class="memory-caption">
+          She looked like a scene a novelist would spend pages trying to describe 🤍
+        </p>
+      </div>
 
 
 
@@ -604,6 +615,17 @@
   <audio id="ambientAudio" loop>
     <source src="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=" type="audio/wav">
   </audio>
+  <!-- MEMORY LIGHTBOX -->
+
+  <div id="memoryLightbox" class="memory-lightbox">
+
+    <button id="closeLightbox" class="lightbox-close">
+      ✕
+    </button>
+
+    <img id="lightboxImage" class="lightbox-image" src="" alt="Expanded memory">
+
+  </div>
 
   <script>
     // ── ENVELOPE INTERACTION ──
@@ -1275,7 +1297,83 @@
       }
 
     });
+
+    // modal
+    const memoryCards =
+      document.querySelectorAll('.memory-card');
+
+    const lightbox =
+      document.getElementById('memoryLightbox');
+
+    const lightboxImage =
+      document.getElementById('lightboxImage');
+
+    const closeLightbox =
+      document.getElementById('closeLightbox');
+
+    /* open */
+
+    memoryCards.forEach(card => {
+
+      card.addEventListener('click', () => {
+
+        const img =
+          card.querySelector('.memory-photo');
+
+        if (img) {
+
+          lightbox.classList.add('show');
+
+          lightboxImage.src = img.src;
+
+          document.body.style.overflow = 'hidden';
+
+        }
+
+      });
+
+    });
+
+    /* close button */
+
+    closeLightbox.addEventListener('click', () => {
+
+      lightbox.classList.remove('show');
+
+      document.body.style.overflow = '';
+
+    });
+
+    /* close outside image */
+
+    lightbox.addEventListener('click', (e) => {
+
+      if (e.target === lightbox) {
+
+        lightbox.classList.remove('show');
+
+        document.body.style.overflow = '';
+
+      }
+
+    });
+
+    /* escape key */
+
+    document.addEventListener('keydown', (e) => {
+
+      if (e.key === 'Escape') {
+
+        lightbox.classList.remove('show');
+
+        document.body.style.overflow = '';
+
+      }
+
+    });
+    // end modal
   </script>
+
 </body>
 
 </html>
